@@ -1,0 +1,70 @@
+Garrick Morley
+SENG 309 / 2 PM
+Project Outline / Deliverable 2
+FINAL PROJECT WRITEUP & PRESENTATION
+1.  SUMMARIZED VERSION OF THE PROBLEM IDEA
+	The question / problem I am trying to solve through machine learning is that of water potability based on a few different features that can affect whether or not water is safe for human consumption. The different features that will have an effect on the resulting odds of potability are as follows: ph Value, Hardness, Solids, Chloramines, Sulfate, Conductivity, Organic Carbon, Trihalomethanes, and Turbidity. These features are used to decide whether each set containing these will likely result in a 1 for potable, or a 0 for non-potable. The code containing my work is in the python file called "runtime.py".
+SUPPORTING IMAGES / EXAMPLES
+	A ) Type "dataset.head()" into the console after running "runtime.py" to display the header of the dataset, which contains the amount of rows and columns as well.
+ 
+	B ) Type "dataset.shape" into the console after running "runtime.py" to display the shape of the dataset, in terms of columns and then rows in that order. 
+ 
+	C ) Type "dataset.isnull().values.any()" into the console after running "runtime.py" to display a true or false statement depending on whether or not any of the values are equal to "null" (or in other words, don't contain a value).
+ 
+	D ) Type "dataset.dropna(inplace =True)" into the console after running "runtime.py" to drop the null values if there are any. Step "C" can then be run again to see if this worked or not, as in this example it will change from "True" to "False" as seen below.
+ 
+	E ) Type "dataset = prep.skewcorrect(dataset,except_columns=['Potability'])" into the console after running "runtime.py" to show the usage of skew correction as it generates a series of graphs and charts which show how the data was corrected over time using this method. 
+	Explanation 1 ) The first image here is the data that is immediately output followed by an error message. This will occur if you haven't completed steps "C" and "D" which remove the "non finite value" that caused the error to be thrown (seen in the last line below).
+ 
+	Explanation 2 ) Once you have completed steps "C" and "D" and you then run step "E" you will get a different result as all the problematic values have now been removed. The text output is up first below here:
+ 
+ 
+ 
+And the graphical output is next here:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2. PREVIOUS SOLUTION TO THIS PROBLEM
+	The most useful solution to this problem is available at Kaggle under this URL:
+https://www.kaggle.com/d4rklucif3r/water-quality-eda-luciferml-73-accuracy 
+First, the programmer of this example did the preprocessing work to transform the raw data into a more understandable and usable format by utilizing the Lucifer-ML (Machine Learning) library. Using this library, and a few inputs that I have saved in a text file, we were able to create several charts and graphs which yielded some visual aids. His solution then used a plethora of different machine learning algorithms, the following of which I found the most useful: Logistic Regression, Support Vector Machine, K-Nearest Neighbors, Decision Trees, and Gausian Naive Bayes.. These algorithms were used to train the model in different ways which allows the user to decide which algorithm is the most effective for this specific problem. The acceptable success rate for this project is around 73% (which leaves an error rate of 27%) as this was the most commonly found result when I looked through the previous submissions that can be found in that subsection of the kaggle page. I believe that this error rate is a bit too high, given how important accuracy is in this area of survival around the world. I have attempted to train the model further but have not been able to increase the success rate in any meaningful way.
+3. DEMO AND APPLICATION SOFTWARE
+	Some of the possible features that could prove useful could be the following:
+	A ) A GUI that the user can input example data into to get an estimate on the probability that the water is potable would be an excellent feature to include in this project. This would allow the users to custom test their own water results and find out if our model is accurate enough for real life integration. It would also be a more marketable feature which could help gain funding for future plans regarding the project. 
+	B ) Another potentially vital feature for this project could be a script that can automatically remove certain sets in the data that fall out of the predetermined boundaries. An example of this would be if water samples with a pH value above 7 or below 4 are not safe for human consumption, then after training the model and before obtaining the results, remove all of the sets of data with non-potable pH values.
+	C ) One final feature that could prove critical for this project would be a sort of personalized definition of the term "potable". Just like anything biological, whether or not a person can safely consume the product in question would likely depend on more than just environmental features. Some examples of this could include the age, gender, medical history (namely vaccination record), and ancestry. While there are undoubtedly more variables at play here, I very strongly believe that these genetic aspects of each case should be factored in on a regional basis. An anecdote relating to this is the consumption of tap water in countries with significantly higher rates of poverty, such as Mexico. Most Americans choose to simply drink bottled water instead and avoid using ice cubes in order to evade the countless bacteria. Most Mexicans on the other hand have been drinking the tap water all their lives and as a result they now have an improved immune system in this regard. Thus biological factors cause each of these two groups to experience vastly different and sometimes atypical versions of the term "potable". 
+	D ) The application features that I developed for this project include the Tensor-Flow GUI which allows the user to input their own water features and the skewness tested in the numerical features which takes place during the preprocessing phase of the program. First, the program will self-correct itself to avoid having skew values that are too high and cause inaccurate results. After this is complete, the GUI framework allows the user to input their desired values for each of the features which results in tailored results that the user can utilize for future work. 
+	E ) The usability of this application is heavily influenced by the assumption that the user has a vast amount of datasets pertaining to this project. The "water_potability.csv" file that I used is an excellent example of what the user should be looking for, as it contains more than enough features and 3,277 entries to allow for the training of the model to give it the necessary level of accuracy. 
+4. METHODOLOGY UTILIZED TO SOLVE THIS PROBLEM
+	A ) The methodology I used to solve this project relied heavily on tweaking the skew values beforehand to achieve more accurate results and then using linear regression along with a decision tree based structure to further seek a higher level of accuracy. 
+	B ) The dataset I used for this is called "water_potability.csv" which contained 3,277 entries, each of which contained nine features and a location to store the resulting water potability value (1 for potable and 0 for non-potable). This dataset undoubtedly contains a sufficient amount of information in order to solve this problem and allow people to make a safe and educated guess regarding the safety of their drinking water. 
+	C ) The dataset preprocessing method that I used for this project gathered the skew values and then calculated and displayed the resulting density plots and probability plots in a 2-D graph. This allows the users to then make changes / corrections which should in theory lead to users to achieve the desired and accurate results that they sought out from the start. 
+	D ) The machine learning algorithms I used for this include linear regression and a decision tree structure which complimented each other in both speed and accuracy. These two algorithms, which both appeared in the bottom left of the diagram that we covered in the week 12 lecture, and I have included this image below. 
+ 
+
+Since both of these algorithms appear under the "Explainable" subsection of the Supervised Classification section, the fact that they work well together is a logical explanation. While I had multiple potentially viable algorithms to begin with, thanks to the previous work by other students on this problem, I chose these two algorithms over the others because they allow my thought processes throughout this project to fall on the explainable side of things. 
+5. DISCUSSION OF THE RESULTS
+	A ) The success and error rates of this project were respectively higher and lower than I would have preferred; however since I found these rates to be consistent between my own trials and those of other students who posted to Kaggle I have come to the decision that my results were worthwhile and contained the proper level of accuracy. 
+	B ) I did take the time to test different values in the numeric features in an attempt to obtain more insight into which features were most impactful on the results. While I did take the time to experiment with the other features, only one of them seemed to play an important enough role to get singled out.
+	C ) The feature that really stood out to me here was the ph values of the different examples in question. This feature seems to have a direct correlation with the ultimate decision as to whether or not the water is potable which is why I decided to use it when creating the upper and lower boundaries of the data as discussed earlier. 
+	D - 1 ) Through this project I definitely feel that I've expanded my knowledge both in computer science and in hydrology. My biggest takeaway of the field is that hydrologists are incredibly adept at accurate record keeping, which is absolutely crucial for something so critical to our survival as a species. Thanks to the accurate and plentiful data regarding water potability I was able to conduct the experiment almost exactly as I desired; this never would have been possible if not for the hydrologists behind the curtain. 
+	D - 2 ) Although this didn't end up being used within the project, by researching water so intensely I stumbled upon a few interesting articles about how the environment was being affected by all this. I never realized just how big of an effect the water cycle has on global warming and other causes of natural disasters There's certainly a strong correlation between non-potable water, which is often acidic, toxic, or polluted in any number of other ways, and the resulting poverty and natural disasters in nearby countries. It's not only human consumption of water that plays a role in this, but animal and insect consumption as well. Since we as humans reside on top of the food chain we are affected quite heavily by this process known as bioaccumulation. This toxic process can lead to numerous health problems such as heavy metal poisoning, kidney damage, and even cancer. The future methods 
+	D - 3 ) The challenges that will most likely prove themselves to be the most difficult to overcome in order to reproduce my work are statistics from certain other foreign countries and a limited amount of previous work from other students to compare my work to. Having a finite amount of reference work that I can utilize means that I have an ultimately limited amount of testing that I can do. Other countries that wish to appear more eco friendly than they are, or perhaps they just don't care enough to keep accurate records, could also be an issue since this type of supervised machine learning relies so heavily on the base level accurate data.
+	E ) Some future steps that I could see myself doing in order to progress this project would be working towards gaining a more accurate and detailed dataset to start with. I could also try spending more time learning about seemingly unrelated factors to see if they could potentially be used as features in future work. One more option I could take for future work would be to talk to more people in real life about this as anyone who knows the topic well enough to, say, hold a seminar on it likely has tons of incredibly useful info. If I were to do this project again I could definitely take a different and more interesting approach, that being said however I'm quite content with how this turned out. 
+
+

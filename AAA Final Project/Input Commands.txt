@@ -1,0 +1,14 @@
+1. dataset.head()	// Outputs the header of the dataset
+
+2. dataset.shape	// Outputs the shape of the dataset
+
+3. dataset.isnull().values.any()	// Outputs whether or not any of the values are null
+
+4. dataset.dropna(inplace =True)	// Drops the null values if there are any
+
+5. Run command #3 again to make sure the null values were dropped	// Should say false now
+
+
+
+6. dataset = prep.skewcorrect(dataset,except_columns=['Potability'])
+   // This displays multiple graphs based on the preprocessing done regarding different skews
